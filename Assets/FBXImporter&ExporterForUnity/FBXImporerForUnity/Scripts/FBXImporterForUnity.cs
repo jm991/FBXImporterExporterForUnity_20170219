@@ -365,12 +365,17 @@ public class FBXImporterForUnity : MonoBehaviour
 
     void Start()
     {
+        // WWW Downloader
+        sWWWDownloaderImporter = gameObject.AddComponent<WWWDownloaderImporter>();
+    }
+
+    public void LoadFBXFile(string filename)
+    {
+        strFilename = filename;
+
         // Init
         if (bDebugLog) Debug.Log("FBXImporterInit()");
         FBXImporterInit();
-
-        // WWW Downloader
-        sWWWDownloaderImporter = gameObject.AddComponent<WWWDownloaderImporter>();
 
         // In Animation
         if (bInAnimation)
